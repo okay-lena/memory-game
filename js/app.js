@@ -5,12 +5,22 @@ let allCards = document.querySelectorAll('.card');
 let cardsToShuffle = [...allCards];
 let deck = document.querySelector('.deck');
 
+function addClickEventToAllCards(){
+  let  cards = document.getElementsByClassName('card');
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', function(){
+      console.log("a");
+    });
+  }
+}
+
 function makeNewCards(){
   let newCards = shuffle(cardsToShuffle);
   for (let i = 0; i < newCards.length; i++){
     newCards[i].classList.remove("open", "show", "match");
     deck.appendChild(newCards[i]);
   }
+  addClickEventToAllCards();
 }
 
 makeNewCards();
