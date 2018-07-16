@@ -11,6 +11,14 @@ let moves = 0;
 let stars = document.querySelector('.stars');
 let rating = 3;
 
+// show modal with results: rating and time
+function showResult() {
+  modal.style.display = "block";
+  result.innerHTML = 'Congratulations! You won!<br>Your rating is ' + rating + ' stars!<br>It took you ' + minutes + ' minutes ' + seconds + ' seconds to find all matches!';
+}
+
+movesSection.innerHTML = moves;
+
 // show result and stop timer if all pairs found
 function congrats(){
   if (pairsMatched == 1){
