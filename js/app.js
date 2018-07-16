@@ -11,6 +11,14 @@ let moves = 0;
 let stars = document.querySelector('.stars');
 let rating = 3;
 
+// show result and stop timer if all pairs found
+function congrats(){
+  if (pairsMatched == 1){
+    showResult();
+    stopTimer();
+  }
+}
+
 // hide cards if no match in open pair
 function hideCard(){
   cardsToCompare[0].classList.remove("open", "show");
