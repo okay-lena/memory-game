@@ -10,6 +10,37 @@ let movesSection = document.querySelector('.moves');
 let moves = 0;
 let stars = document.querySelector('.stars');
 let rating = 3;
+let modal = document.querySelector('#modal'); //congrats popup
+let result = document.querySelector('#result');
+
+// Get the <span> element that closes the modal
+var closeModal = document.getElementById('closeModal');
+
+// When the user clicks on <closeModal> (x), close the modal
+closeModal.onclick = function() {
+  modal.style.display = "none";
+  makeNewCards();
+}
+
+// close the modal and start new game when uer clicks Play Again button
+playAgain.onclick = function() {
+  modal.style.display = "none";
+  makeNewCards();
+}
+
+// start new game if the repeat icon is clicked
+restartGame.onclick = function() {
+  stopTimer();
+  makeNewCards();
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+      modal.style.display = "none";
+      makeNewCards();
+  }
+}
 
 // show modal with results: rating and time
 function showResult() {
