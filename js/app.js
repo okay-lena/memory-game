@@ -90,7 +90,7 @@ movesSection.innerHTML = moves;
 
 // show result and stop timer if all pairs found
 function congrats(){
-  if (pairsMatched == 1){
+  if (pairsMatched == 8){
     showResult();
     stopTimer();
   }
@@ -134,9 +134,12 @@ function increaseMoves(){
   setRating();
 }
 
-function resetMovesAndPairsMatched(){
+function resetMovesRatingAndPairsMatched(){
   moves = 0;
   movesSection.innerHTML = moves;
+  stars.children[0].innerHTML = '<i class="fa fa-star"></i>';
+  stars.children[1].innerHTML = '<i class="fa fa-star"></i>';
+  stars.children[2].innerHTML = '<i class="fa fa-star"></i>';
   pairsMatched = 0;
 }
 
@@ -171,7 +174,7 @@ function addClickEventToAllCards(){
 }
 
 function makeNewCards(){
-  resetMovesAndPairsMatched();
+  resetMovesRatingAndPairsMatched();
   resetTimer();
   let newCards = shuffle(cardsToShuffle);
   for (let i = 0; i < newCards.length; i++){
