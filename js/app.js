@@ -12,6 +12,44 @@ let stars = document.querySelector('.stars');
 let rating = 3;
 let modal = document.querySelector('#modal'); //congrats popup
 let result = document.querySelector('#result');
+let restartGame = document.getElementById('restartGame');
+let timer = document.getElementById('timer');
+let timeCounter = 0;
+let seconds = 0;
+let minutes = 0;
+let cardsClicked = 0;
+
+// setting timer to display 00:00, and nulling seconds and minutes
+function resetTimer() {
+  seconds = 0;
+  minutes = 0;
+  cardsClicked = 0;
+  timer.textContent = "00:00";
+}
+
+// stop counting time
+function stopTimer(){
+  clearInterval(timeCounter);
+}
+
+// start making time every second
+function startTimer(){
+  timeCounter = setInterval(makeTimer, 1000);
+}
+
+// making seconds and minutes
+function makeTimer(){
+  seconds++;
+  if (seconds === 60){
+    seconds = 0;
+    minutes++;
+    if (minutes === 60){ //noone will play it for more than 1 hour, right?
+      seconds = 0;
+      minutes = 0;
+    }
+  }
+  timer.textContent = minutes.toString() + " : " + seconds.toString();
+}
 
 // Get the <span> element that closes the modal
 var closeModal = document.getElementById('closeModal');
