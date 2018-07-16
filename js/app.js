@@ -5,12 +5,26 @@ let allCards = document.querySelectorAll('.card');
 let cardsToShuffle = [...allCards];
 let deck = document.querySelector('.deck');
 
+
+
+//if a card is clicked: display the cards symbol, add cards to compare, start timer
+function showCard(){
+  if (!(event.target.classList.contains("open"))){
+    event.target.classList.add("open", "show");
+    addToCardsToCompare();
+    cardsClicked++;
+    if (cardsClicked === 1) { //we need to start timer only once
+      startTimer();
+    }
+  }
+}
+
+//set up the event listener for a card
 function addClickEventToAllCards(){
   let  cards = document.getElementsByClassName('card');
   for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', function(){
-      console.log("a");
-    });
+    // if card is clicked - show card
+    cards[i].addEventListener('click', showCard);
   }
 }
 
