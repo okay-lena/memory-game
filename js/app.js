@@ -7,6 +7,16 @@ let deck = document.querySelector('.deck');
 
 
 
+
+// add cards to compare in pairs, increase a move with every pair of cards open
+function addToCardsToCompare(){
+  cardsToCompare.push(event.target);
+  if (cardsToCompare.length == 2){
+    increaseMoves();
+    compareCards();
+  }
+}
+
 //if a card is clicked: display the cards symbol, add cards to compare, start timer
 function showCard(){
   if (!(event.target.classList.contains("open"))){
