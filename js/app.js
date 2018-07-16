@@ -11,6 +11,26 @@ let moves = 0;
 let stars = document.querySelector('.stars');
 let rating = 3;
 
+// hide cards if no match in open pair
+function hideCard(){
+  cardsToCompare[0].classList.remove("open", "show");
+  cardsToCompare[1].classList.remove("open", "show");
+  cardsToCompare = [];
+}
+
+// comparison of card pair, every match counts, check if user won, if no match - hide cards
+function compareCards(){
+  if (cardsToCompare[0].innerHTML === cardsToCompare[1].innerHTML){
+    cardsToCompare[0].classList.add("open", "show", "match");
+    cardsToCompare[1].classList.add("open", "show", "match");
+    pairsMatched++;
+    congrats();
+    cardsToCompare = [];
+  } else {
+    setTimeout(hideCard, 1000);
+  }
+}
+
 // rating logic
 function setRating(){
   if (moves > 8 && moves < 16){
