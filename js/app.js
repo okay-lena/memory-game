@@ -6,7 +6,18 @@ let cardsToShuffle = [...allCards];
 let deck = document.querySelector('.deck');
 
 
+// with every move set proper rating
+function increaseMoves(){
+  moves++;
+  movesSection.innerHTML = moves;
+  setRating();
+}
 
+function resetMovesAndPairsMatched(){
+  moves = 0;
+  movesSection.innerHTML = moves;
+  pairsMatched = 0;
+}
 
 // add cards to compare in pairs, increase a move with every pair of cards open
 function addToCardsToCompare(){
