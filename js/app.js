@@ -171,6 +171,8 @@ function addClickEventToAllCards(){
 }
 
 function makeNewCards(){
+  resetMovesAndPairsMatched();
+  resetTimer();
   let newCards = shuffle(cardsToShuffle);
   for (let i = 0; i < newCards.length; i++){
     newCards[i].classList.remove("open", "show", "match");
