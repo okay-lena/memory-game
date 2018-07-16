@@ -4,7 +4,23 @@
 let allCards = document.querySelectorAll('.card');
 let cardsToShuffle = [...allCards];
 let deck = document.querySelector('.deck');
+let cardsToCompare = [];
+let pairsMatched = 0;
+let movesSection = document.querySelector('.moves');
+let moves = 0;
+let stars = document.querySelector('.stars');
+let rating = 3;
 
+// rating logic
+function setRating(){
+  if (moves > 8 && moves < 16){
+    stars.children[0].innerHTML = '<i class="fa fa-star-o"></i>';
+    rating = 2;
+  } else if (moves > 15) {
+    stars.children[1].innerHTML = '<i class="fa fa-star-o"></i>';
+    rating = 1;
+  }
+}
 
 // with every move set proper rating
 function increaseMoves(){
