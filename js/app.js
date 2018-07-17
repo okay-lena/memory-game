@@ -51,6 +51,7 @@ function makeTimer(){
   timer.textContent = minutes.toString() + " : " + seconds.toString();
 }
 
+// -- start of Modal window - some code is taken from https://www.w3schools.com/howto/howto_css_modals.asp -- //
 // Get the <span> element that closes the modal
 var closeModal = document.getElementById('closeModal');
 
@@ -85,6 +86,7 @@ function showResult() {
   modal.style.display = "block";
   result.innerHTML = 'Congratulations! You won!<br>Your rating is ' + rating + ' stars!<br>It took you ' + minutes + ' minutes ' + seconds + ' seconds to find all matches!';
 }
+// -- end of Modal -- //
 
 movesSection.innerHTML = moves;
 
