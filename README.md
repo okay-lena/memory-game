@@ -26,6 +26,10 @@ When the player starts a game, a displayed timer should also start. Once the pla
 ### Move Counter
 Game displays the current number of moves a user has made.
 
+## Built With
+- [Font Awesome](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css)
+- [Coda Google font](https://fonts.googleapis.com/css?family=Coda)
+
 ## Contributing
 
 This repository is a personal version of Udacity's Memory Game Project. Therefore, most likely pull requests will not be accepted.
