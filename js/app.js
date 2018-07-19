@@ -1,19 +1,19 @@
 /*
  * Create a list that holds all of your cards
  */
-let allCards = document.querySelectorAll('.card');
-let cardsToShuffle = [...allCards];
-let deck = document.querySelector('.deck');
+const allCards = document.querySelectorAll('.card');
+const cardsToShuffle = [...allCards];
+const deck = document.querySelector('.deck');
 let cardsToCompare = [];
 let pairsMatched = 0;
-let movesSection = document.querySelector('.moves');
+const movesSection = document.querySelector('.moves');
 let moves = 0;
-let stars = document.querySelector('.stars');
+const stars = document.querySelector('.stars');
 let rating = 3;
-let modal = document.querySelector('#modal'); //congrats popup
-let result = document.querySelector('#result');
-let restartGame = document.getElementById('restartGame');
-let timer = document.getElementById('timer');
+const modal = document.querySelector('#modal'); //congrats popup
+const result = document.querySelector('#result');
+const restartGame = document.getElementById('restartGame');
+const timer = document.getElementById('timer');
 let timeCounter = 0;
 let seconds = 0;
 let minutes = 0;
@@ -53,7 +53,7 @@ function makeTimer(){
 
 // -- start of Modal window - some code is taken from https://www.w3schools.com/howto/howto_css_modals.asp -- //
 // Get the <span> element that closes the modal
-var closeModal = document.getElementById('closeModal');
+let closeModal = document.getElementById('closeModal');
 
 // When the user clicks on <closeModal> (x), close the modal
 closeModal.onclick = function() {
@@ -114,7 +114,7 @@ function compareCards(){
     congrats();
     cardsToCompare = [];
   } else {
-    setTimeout(hideCard, 1000);
+    setTimeout(hideCard, 800);
   }
 }
 
@@ -148,7 +148,7 @@ function resetMovesRatingAndPairsMatched(){
 // add cards to compare in pairs, increase a move with every pair of cards open
 function addToCardsToCompare(){
   cardsToCompare.push(event.target);
-  if (cardsToCompare.length == 2){
+  if (cardsToCompare.length === 2){
     increaseMoves();
     compareCards();
   }
@@ -156,7 +156,7 @@ function addToCardsToCompare(){
 
 //if a card is clicked: display the cards symbol, add cards to compare, start timer
 function showCard(){
-  if (!(event.target.classList.contains("open"))){
+  if (!(event.target.classList.contains("open")) && (cardsToCompare.length < 2)){
     event.target.classList.add("open", "show");
     addToCardsToCompare();
     cardsClicked++;
